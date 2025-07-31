@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'corsheaders',
-    'accounts'
+    'accounts',
+    'travel_club__app',
+    'vehicle_app',
+    'hotel__app',
+    "core"
 
 ]
 
