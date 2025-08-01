@@ -1,13 +1,15 @@
-from django.urls import path
+from django.urls import path, include 
 from . import views
+from rest_framework.routers import SimpleRouter
+from pprint import pprint
+
+router = SimpleRouter()
+router.register("vowners", views.VehicleOwnerViewSet)
+router.register("vehicles", views.VehicleViewSet)
+router.register("vreviews", views.ReviewViewSet)
+
+pprint(router.urls) 
 
 urlpatterns = [
-    path('vowners/', views.vehicle_owner_list_create),
-    path('vowners/<int:pk>/', views.vehicle_owner_detail),
-
-    path('vehicles/', views.vehicle_list_create),
-    path('vehicles/<int:pk>/', views.vehicle_detail),
-
-    path('vreviews/', views.review_list_create),
-    path('vreviews/<int:pk>/', views.review_detail),
+    path("", include(router.urls)), 
 ]
