@@ -21,7 +21,7 @@ class Vehicle(models.Model):
     color = models.CharField(max_length=50)
 
 class VehicleReview(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name="reviews")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name="vehicle_reviews")
     vehicle= models.OneToOneField(Vehicle,on_delete=models.CASCADE,related_name='vehicle_reviews')
     rating = models.PositiveSmallIntegerField()  
     comment = models.TextField(blank=True)
